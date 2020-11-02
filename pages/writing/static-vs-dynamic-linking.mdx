@@ -1,0 +1,33 @@
+---
+title: "Static vs Dynamic Linking"
+description: "This concept from operating systems is a deeper pattern that extends anywhere with composition and shared dependencies."
+date: "10/25/2020"
+---
+
+Like many others, I was first introduced to the idea of static and dynamic linking in an operating systems class. Different programs need to access the same system libraries. The first solution is to give each program its own copy of the library included in its executable at compile-time — static linking. Multics, the influential operating system from the 60s, was the first to offer dynamic linking. One copy of a system library could be shared by multiple programs, who call it at runtime. Static linking is simpler, but requires more memory and disk. Dynamic linking is generally more resource efficient, but is more complex and notoriously error prone. Using a dynamically linked library can alos be slower.
+
+At its core, static vs dynamic linking is about where to draw boundaries. In operating systems, the dependency is the system library, and the consumer is the program that depends on it. The core question is whether to combine the consumer and dependency into one unit, or to keep them separate. Combining them is simpler, and communication between consumer and dependency is easier. Keeping them separate can be more resource efficient, but communication becomes harder and potentially less performant. The dependency can change independently of the consumer. This is great if you want to make sure each consumer is always using the latest version of the dependency, but what if a dependency change breaks the communication? The consumer is now at the mercy of the dependency. What if the dependency is corrupted or overtaken by a malicious actor? There are security implications to consider with dynamic linking.
+
+If you look closely, static vs dynamic linking is not just an OS problem. It's a problem that shows up everywhere, a more general pattern of composition and shared dependencies.
+
+---
+
+It used to be common for web apps to use a CDN to include external dependencies like jQuery. If another website needs the same dependency and uses the same CDN, it can use the browser's cached version, effectively sharing the dependency. Nowadays, it's common for web apps to have all their dependencies bundled into them. As you navigate the web, you're probably downloading React over and over again. Dynamic linking can improve network and memory usage, but it increases the room for errors and can make them harder to debug and fix. It also has security implications — many large companies don't use 3rd party CDNs because they want full control over the code they distribute.
+
+---
+
+It's common for large web applications to be split up into multiple smaller apps. For example, paypal.com consists of several separate web applications developed by separate teams, all of which share dependencies. For example, many of them need to display the same header. It could be consumed at build-time as an npm module, but coordinating header updates across teams would be difficult. For dependencies like React, it doesn't affect the user experience very much if different apps are using different versions. Different headers on different pages, though, would be jarring and unacceptable. For this reason, each app fetches the header dynamically and bundles React statically. As technologies like Webpack Federation mature, it may become more common to dynamically link more dependencies and reap the performance benefits of smaller bundle sizes.
+
+---
+
+One way to build a complex backend system split into multiple parts is as one big application, bundling the parts together statically at build-time. Or, you can separate the parts into services that communicate over HTTP dynamically at runtime. Static linking is much simpler — having to communicate over the network and deploy separately introduces lots of new failure modes. It can be harder to develop and test locally and to debug problems. On the other hand, separated services can scale independently and be more resource efficient. Decomposing the system into small pieces with clearly defined borders can make it easier to manage each piece, especially at a big company where each piece has a team dedicated to it.
+
+---
+
+Let's say you're building a function-as-a-service platform. Customers will give you JavaScript functions and you're responsible for running them. You can package a runtime like Node with the code and give each function its own copy using containers or something similar. Or you can run a JavaScript engine yourself, and share it between multiple customers' functions, like Cloudflare Workers. Giving each function it’s own runtime is simpler and (according to AWS) more secure. Dynamically sharing runtimes can be much more resource efficient but is more complex.
+
+This example can extend beyond FaaS platforms to any compute platform that runs multiple tenants. You can give each tenant its own server, or you can share a single server between multiple tenants, and use VMs to give each its own operating system. Or, instead of giving each tenant its own operating system, you can let multiple tenants share the same kernel, e.g. using containers. If you're a company that needs compute, you can build out your own data centers or you can use the shared data centers offered by cloud computing.
+
+---
+
+As you've hopefully seen from the above examples, static vs dynamic linking is a universal pattern that shows up anywhere with composition and shared dependencies — i.e. everywhere in software systems. In each instance of the problem, the basic set of tradeoffs are the same. Next time you're trying to figure out the best way to share dependencies, you know what questions to ask. How important is resource efficiency? How much more difficult will it be to debug problems if we separate out the dependency? How will the performance of using the dependency be impacted? Do we need every consumer to always use the latest version of the dependency? Are there security implications?

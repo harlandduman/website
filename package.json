@@ -11,5 +11,11 @@
     "next": "10.0.0",
     "react": "17.0.1",
     "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@mdx-js/loader": "^1.6.19",
+    "@next/mdx": "^10.0.0",
+    "babel-plugin-import-glob-array": "^0.2.0",
+    "next-mdx-enhanced": "^5.0.0"
   }
 }
