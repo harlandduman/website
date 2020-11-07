@@ -6,15 +6,15 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        {/* <link rel="icon" href="/favicon.ico" /> */}
         <title>Harland Duman</title>
       </Head>
-      <header style={{ paddingTop: "1rem", paddingBottom: "1rem" }}>
-        <Link href="/">
-          <a style={{ textDecoration: "none" }}>
-            <h3>Harland</h3>
-          </a>
-        </Link>
+      <header className="py-4 mb-6 bg-gray-100 border-b border-gray-400">
+        <div className="max-w-3xl px-6 mx-auto">
+          <Link href="/">
+            <a className="text-2xl font-semibold">Harland Duman</a>
+          </Link>
+        </div>
       </header>
       <Component {...pageProps} />
     </>
