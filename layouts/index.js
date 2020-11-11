@@ -8,7 +8,7 @@ const Layout = ({ children, frontMatter }) => {
       </Head>
       <h1 className="mb-2 text-3xl font-bold">{frontMatter.title}</h1>
       <div className="mb-6 font-medium text-gray-700">{frontMatter.date}</div>
-      <div className="prose ">{children}</div>
+      <div className="max-w-3xl mx-auto prose">{children}</div>
     </div>
   );
 };

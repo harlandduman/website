@@ -35,7 +35,7 @@ One way to build a complex backend system is as one big application, bundling th
 
 ## Compute Platforms
 
-Let's say you're building a function-as-a-service platform. Customers will give you JavaScript functions and you're responsible for running them. Those functions depend on a JavaScript runtime. You can use package a copy of Node with each function using containers or something similar. Or you can run a JavaScript engine yourself, and share it between multiple customers' functions, like Cloudflare Workers does. Cloudflare uses dynamic linking here primarily because of resource constraints. AWS doesn't use a langauge VM for Lambda in part because of security tradeoffs.
+Let's say you're building a function-as-a-service platform. Customers will give you JavaScript functions and you're responsible for running them. Those functions depend on a JavaScript runtime. You can package a copy of Node with each function using containers or something similar. Or you can run a JavaScript engine yourself, and share it between multiple customers' functions, like Cloudflare Workers does. Cloudflare uses dynamic linking here primarily because of resource constraints. AWS doesn't use a language VM for Lambda in part because of security tradeoffs.
 
 This can extend to any compute platform that runs multiple tenants. Another dependency is the operating system. You can give each tenant its own operating system using VMs, or you can share one kernel between multiple tenants using containers. Even further down, every tenant has a dependency on an actual server. You can give each tenant its own machine, or share one machine between multiple tenants using VMs.
 
