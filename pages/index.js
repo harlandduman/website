@@ -10,8 +10,7 @@ export default function Home() {
       <p className="mb-6">
         I'm a developer currently working on the Web Platform team at PayPal.
         Recently, I've been focused on building our new static asset deployment
-        system. Before, I worked as a Solutions Engineer at Neo4j, helping
-        customers solve all sorts of problems.
+        system. Before, I worked as a Solutions Engineer at Neo4j.
       </p>
       <h2 className="mb-4 text-2xl font-semibold">Writing</h2>
       <ul>
