@@ -13,6 +13,7 @@ export default function Home() {
         <a
           href="https://www.paypal.com"
           target="_blank"
+          rel="noopener"
           className="text-blue-700 hover:underline"
         >
           <PayPalIcon />
@@ -23,6 +24,7 @@ export default function Home() {
         <a
           href="https://neo4j.com"
           target="_blank"
+          rel="noopener"
           className="text-blue-700 hover:underline "
         >
           <Neo4jIcon />
