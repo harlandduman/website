@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
@@ -11,7 +13,13 @@ module.exports = {
     "./pages/**/*.mdx",
     "./components/**/*.js",
   ],
-  theme: {},
+  theme: {
+    extend: {
+      colors: {
+        "light-blue": colors.lightBlue,
+      },
+    },
+  },
   variants: {},
   plugins: [require("@tailwindcss/typography")],
 };

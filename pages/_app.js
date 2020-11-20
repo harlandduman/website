@@ -22,11 +22,24 @@ function MyApp({ Component, pageProps }) {
         {/* <link rel="icon" href="/favicon.ico" /> */}
         <title>Harland Duman</title>
       </Head>
-      <header className="py-4 mb-6 bg-gray-100 border-b border-gray-300">
-        <div className="max-w-3xl px-6 mx-auto">
-          <Link href="/">
-            <a className="text-2xl font-semibold">Harland Duman</a>
-          </Link>
+      <header>
+        <div className="max-w-3xl px-6 mx-auto mt-6 mb-8">
+          <div>
+            <Link href="/">
+              <a className="text-3xl font-semibold text-gray-900 hover:text-light-blue-600">
+                Harland Duman
+              </a>
+            </Link>
+          </div>
+          <div>
+            <a
+              href="https://twitter.com/harlandduman"
+              rel="noopener"
+              className="text-lg font-medium text-light-blue-600 hover:text-light-blue-500"
+            >
+              @harlandduman
+            </a>
+          </div>
         </div>
       </header>
       <Component {...pageProps} />

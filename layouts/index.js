@@ -6,9 +6,10 @@ const Layout = ({ children, frontMatter }) => {
       <Head>
         <title>{frontMatter.title} - Harland Duman</title>
       </Head>
-      <h1 className="mb-2 text-3xl font-bold">{frontMatter.title}</h1>
-      <div className="mb-6 font-medium text-gray-700">{frontMatter.date}</div>
-      <div className="max-w-3xl mx-auto prose">{children}</div>
+      <div className="font-medium text-gray-600">{frontMatter.date}</div>
+      <h1 className="mb-2 text-3xl font-semibold">{frontMatter.title}</h1>
+      <div className="w-32 mb-8 border-b-4 border-gray-300 sm:w-48" />
+      <div className="max-w-3xl mx-auto prose prose-lg">{children}</div>
     </div>
   );
 };
