@@ -1,25 +1,36 @@
 import Link from "next/link";
-import { frontMatter as writingPages } from "./writing/*.mdx";
-
-const formatPath = (p) => p.replace(/\.mdx$/, "");
+import Layout from "../components/Layout";
 
 export default function Home() {
   return (
-    <main className="max-w-3xl px-6 mx-auto leading-relaxed text-gray-900">
-      <ul>
-        {writingPages.map(({ title, date, __resourcePath }) => {
-          return (
-            <li key={title}>
-              <p className="font-medium leading-6 text-gray-600 ">{date}</p>
-              <Link href={formatPath(__resourcePath)}>
-                <a className="mb-1 text-3xl font-semibold hover:text-light-blue-600">
-                  {title}
-                </a>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </main>
+    <Layout>
+      <div className="prose">
+        <h2>Hey, I'm Harland</h2>
+        <p>
+          I'm a software engineer currently building infrastructure on the Web
+          Platform team at PayPal. Right now I'm focused on building our new
+          static file deployment system, and I used to work on GraphQL
+          infrastructure. Before, I worked at Neo4j, helping customers realize
+          the potential of graph databases.
+        </p>
+
+        <h2>This Website</h2>
+        <p>
+          This website contains some of my{" "}
+          <Link href="/writing">
+            <a>writing</a>
+          </Link>
+          , information{" "}
+          <Link href="/about">
+            <a>about me</a>
+          </Link>
+          , and a catalog of some of my{" "}
+          <Link href="stuff-i-like">
+            <a>favorite things</a>
+          </Link>
+          .
+        </p>
+      </div>
+    </Layout>
   );
 }

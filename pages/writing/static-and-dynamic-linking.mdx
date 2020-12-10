@@ -2,6 +2,7 @@
 title: "Static and Dynamic Linking"
 description: "This concept goes beyond operating systems and is useful anywhere with composition and shared dependencies."
 date: "Oct 25, 2020"
+lastUpdated: "Nov 2, 2020 1:00 PM PST"
 ---
 
 If you look up "static vs dynamic linking" you'll get lots of articles and videos that all explain it like this:
@@ -31,7 +32,7 @@ Dynamic linking can improve network and memory usage, but it increases the room 
 
 It's common for large web applications to be split up into multiple smaller apps. [PayPal.com](https://paypal.com) consists of several separate web applications developed by separate teams, all of which share dependencies. For example, many of them need to display the same header. It could be consumed at build-time as an npm module, but coordinating header updates across teams would be prohibitively difficult.
 
-For dependencies like React, it doesn't affect the user experience very much if different apps are using different versions. Different headers on different pages, though, would be jarring and unacceptable. Because of this, each app fetches the header dynamically and bundles React statically. As technologies like [Webpack Federation mature](https://indepth.dev/webpack-5-module-federation-a-game-changer-in-javascript-architecture), it may become more common to dynamically link more dependencies and reap the performance benefits of smaller bundle sizes.
+For dependencies like React, it doesn't affect the user experience very much if different apps are using different versions. Different headers on different pages, though, would be jarring and unacceptable. Because of this, each app fetches the header dynamically and bundles React statically. As technologies like [Webpack Federation](https://indepth.dev/webpack-5-module-federation-a-game-changer-in-javascript-architecture) mature, it may become more common to dynamically link more dependencies and reap the performance benefits of smaller bundle sizes.
 
 ## Microservices
 

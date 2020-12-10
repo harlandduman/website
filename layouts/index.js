@@ -1,17 +1,21 @@
 import Head from "next/head";
+import TimeAgo from "../components/TimeAgo";
+import Layout from "../components/Layout";
 
-const Layout = ({ children, frontMatter }) => {
+const PostLayout = ({ children, frontMatter }) => {
   return (
-    <div className="max-w-3xl px-6 mx-auto mb-12">
+    <Layout>
       <Head>
         <title>{frontMatter.title} - Harland Duman</title>
       </Head>
-      <div className="font-medium text-gray-600">{frontMatter.date}</div>
-      <h1 className="mb-8 text-3xl font-semibold ">{frontMatter.title}</h1>
+      <h1 className="text-2xl font-semibold ">{frontMatter.title}</h1>
+      <div className="mt-0.5 mb-8 font-medium text-gray-600">
+        Last updated <TimeAgo date={frontMatter.lastUpdated} />
+      </div>
       <div className="w-16 mb-8 border-b-2 border-light-blue-500" />
-      <div className="max-w-3xl mx-auto prose prose-lg">{children}</div>
-    </div>
+      <div className="max-w-3xl mx-auto prose">{children}</div>
+    </Layout>
   );
 };
 
-export default Layout;
+export default PostLayout;

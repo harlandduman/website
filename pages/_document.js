@@ -25,7 +25,7 @@ export default class CustomDocument extends Document {
             }}
           />
         </Head>
-        <body>
+        <body className="bg-gray-50">
           <Main />
           <NextScript />
         </body>
