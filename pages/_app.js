@@ -48,17 +48,17 @@ const MyApp = ({ Component, pageProps }) => {
               Harland Duman
             </a>
           </Link>
-          <div className="flex-shrink-0 mt-2 space-x-6">
+          <nav className="flex-shrink-0 mt-2 space-x-6">
             <Link href="/writing" passHref>
               <HeaderLink active={onWritingPage}>Writing</HeaderLink>
+            </Link>
+            <Link href="stuff-i-like/books" passHref>
+              <HeaderLink active={onStuffILikePage}>Stuff I Like</HeaderLink>
             </Link>
             <Link href="/about" passHref>
               <HeaderLink active={onAboutPage}>About</HeaderLink>
             </Link>
-            <Link href="stuff-i-like" passHref>
-              <HeaderLink active={onStuffILikePage}>Stuff I Like</HeaderLink>
-            </Link>
-          </div>
+          </nav>
         </div>
       </header>
       <Component {...pageProps} />

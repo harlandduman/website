@@ -19,13 +19,9 @@ export default function Home() {
           This website contains some of my{" "}
           <Link href="/writing">
             <a>writing</a>
-          </Link>
-          , information{" "}
-          <Link href="/about">
-            <a>about me</a>
-          </Link>
-          , and a catalog of some of my{" "}
-          <Link href="stuff-i-like">
+          </Link>{" "}
+          and a catalog of some of my{" "}
+          <Link href="stuff-i-like/books">
             <a>favorite things</a>
           </Link>
           .
