@@ -2,7 +2,7 @@
 title: "Static and Dynamic Linking"
 description: "This concept goes beyond operating systems and is useful anywhere with composition and shared dependencies."
 date: "Oct 25, 2020"
-lastUpdated: "Nov 2, 2020 1:00 PM PST"
+lastUpdated: "Dec 27, 2020 7:30 PM PST"
 ---
 
 If you look up "static vs dynamic linking" you'll get lots of articles and videos that all explain it like this:
@@ -27,6 +27,8 @@ At its core, static vs dynamic linking is about where to draw boundaries. Do you
 It used to be common for websites to use an external CDN to include dependencies like jQuery. If another website needs the same dependency and uses the same CDN, it can use the browser's cached version, effectively sharing the dependency. Today, it's common for web apps to have all their dependencies bundled into them statically. As you navigate the web, you're probably downloading React over and over again.
 
 Dynamic linking can improve network and memory usage, but it increases the room for errors and can make them harder to debug and fix. It also has security implications — many large companies don't use 3rd party CDNs because they want full control over the code they distribute.
+
+_Edit: As of version 85, Chrome [partitions its cache by URL](https://developers.google.com/web/updates/2020/10/http-cache-partitioning), meaning resources aren't shared across websites._
 
 ## Sharing Across Microfrontends
 
